@@ -1,5 +1,5 @@
 {-# LANGUAGE DeriveGeneric #-}
-module Network.AWS.S3Simple where
+module Network.AWS.S3Simple (module Network.AWS.S3Simple) where
 
 import Control.Applicative
 import Data.Either
