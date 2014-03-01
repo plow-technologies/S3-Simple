@@ -18,16 +18,7 @@ defaultS3Host = S3Host "s3.amazonaws.com" 80
 
 
 uploadObject :: S3Connection -> S3Bucket ->  S3Object -> IO (S3Result ())
-uploadObject sConn sBucket sObj = do
-  let conn = adaptS3Connection sConn
-      obj = adaptS3Object sObj
-  res <- Obj.sendObject conn obj
-  case (res) of
-    (Left err) -> do
-      case (err) of
-        (Res.NetworkError _) -> return $ S3Error $ Left $ S3NetworkError "Error connecting to the server"
-        (Res.AWSError sX sY) -> return $ S3Error $ Right$ S3AuthError $ sX ++ sY
-    (Right _) -> return $ S3Success ()
+uploadObject sConn sBucket sObj = handleUploadObject Obj.sendObject (adaptS3Connection sConn) (adaptS3Object sObj)
 
 
 createBucket :: S3Connection -> S3Bucket -> IO (S3Result ())
@@ -51,3 +42,6 @@ listBuckets :: S3Connection -> IO (S3Result [S3Bucket])
 listBuckets sConn = do
   res <- Bucket.listBuckets (adaptS3Connection sConn)
   return (adaptS3Result (adaptLibS3Bucket <$>) res)
+
+uploadObjectValidate :: S3Connection -> S3Bucket -> S3Object -> IO (S3Result ())
+uploadObjectValidate sConn sBucket sObj = handleUploadObject Obj.sendObjectMIC (adaptS3Connection sConn) (adaptS3Object sObj)

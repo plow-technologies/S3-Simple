@@ -48,3 +48,13 @@ adaptLibS3Bucket (Bucket.S3Bucket name date) = S3Bucket name date UndefinedRegio
 
 adaptLibS3Empty :: () -> ()
 adaptLibS3Empty a = ()
+
+handleUploadObject :: (Conn.AWSConnection -> Obj.S3Object -> IO (Res.AWSResult ())) -> Conn.AWSConnection -> Obj.S3Object -> IO (S3Result ())
+handleUploadObject f conn obj= do
+  res <- f conn obj
+  case (res) of
+    (Left err) -> do
+      case (err) of
+        (Res.NetworkError _) -> return $ S3Error $ Left $ S3NetworkError "Error connecting to the server"
+        (Res.AWSError sX sY) -> return $ S3Error $ Right$ S3AuthError $ sX ++ sY
+    (Right _) -> return $ S3Success ()
