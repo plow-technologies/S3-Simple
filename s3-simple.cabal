@@ -12,10 +12,6 @@ maintainer:          kevincotrone@gmail.com
 -- copyright:           
 category:            Network
 build-type:          Simple
-extra-source-files:  Network.AWS.S3Simple
-                    ,Network.AWS.S3SimpleAdapters
-                    ,Network.AWS.S3SimpleTypes
-                    ,Test  
 cabal-version:       >=1.10
 
 Executable           test
@@ -27,7 +23,9 @@ Executable           test
                     ,yaml  
                     ,aeson
                     ,cryptohash 
+                    ,s3-simple
   main-is:           Main.hs
+  default-language:    Haskell2010
 
 library
   exposed-modules:     Network.AWS.S3Simple
