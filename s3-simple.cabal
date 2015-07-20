@@ -34,10 +34,10 @@ library
   -- other-extensions:    
   build-depends:       base >=4.6 && < 5
                       ,hS3  >= 0.5.8
-                      ,bytestring >= 0.10.0.2
-                      ,split >= 0.2.2
-                      ,yaml >= 0.8.7.2
+                      ,bytestring
+                      ,split
+                      ,yaml
                       ,aeson 
-                      ,cryptohash >= 0.11.2
+                      ,cryptohash
   hs-source-dirs:      src
   default-language:    Haskell2010
