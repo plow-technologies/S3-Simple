@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                s3-simple
-version:             0.2.1
+version:             0.3.0
 synopsis:            A simple s3 library that uses hs3
 -- description:         
 license:             BSD3
@@ -30,7 +30,7 @@ Executable           test
 library
   exposed-modules:     Network.AWS.S3Simple
                       ,Network.AWS.S3SimpleTypes
-  other-modules:      Network.AWS.S3SimpleAdapters   
+  other-modules:       Network.AWS.S3SimpleAdapters   
   -- other-extensions:    
   build-depends:       base >=4.6 && < 5
                       ,hS3  >= 0.5.8
