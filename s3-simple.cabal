@@ -2,7 +2,7 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                s3-simple
-version:             0.3.0
+version:             0.4.0
 synopsis:            A simple s3 library that uses hs3
 -- description:         
 license:             BSD3
