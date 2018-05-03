@@ -25,13 +25,15 @@ Executable           test
                     ,cryptohash 
                     ,s3-simple
   main-is:           Main.hs
+  other-modules:     Network.AWS.S3Simple
+                    ,Network.AWS.S3SimpleAdapters
+                    ,Network.AWS.S3SimpleTypes
   default-language:    Haskell2010
 
 library
   exposed-modules:     Network.AWS.S3Simple
                       ,Network.AWS.S3SimpleTypes
-  other-modules:       Network.AWS.S3SimpleAdapters   
-  -- other-extensions:    
+  other-modules:       Network.AWS.S3SimpleAdapters
   build-depends:       base >=4.6 && < 5
                       ,hS3  >= 0.5.8
                       ,bytestring
