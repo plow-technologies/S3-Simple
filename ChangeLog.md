@@ -9,9 +9,13 @@ A simple Amazon S3 library that is backend agnostic.
 
 *For complete history please view commit log*
 
-#Current Version 0.1.0.3
+#Current Version 0.4.0
 --------------------------
 
+## 0.4.0
+--------------------------
++ 0.4.0
+  + Upgrade to GHC 8.2.2
 
 ## Proposed Release 0.1.0.4
 ----------------------------
